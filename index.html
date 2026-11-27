@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#eee5d7">
+<title>Dear, Day — A little place for our letters</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Nanum+Myeongjo:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="paper-wrap">
+  <header class="top"><span class="stamp">D · D</span><span>VOL. 01　/　OUR LITTLE ARCHIVE</span><span>♡</span></header>
+  <main>
+    <section class="hero">
+      <p class="eyebrow">A LITTLE PLACE FOR OUR LETTERS</p>
+      <h1>Dear, Day<span>,</span></h1>
+      <p class="subtitle">오늘의 마음을 적어 두는 작은 다이어리</p>
+      <div class="pink-rule">✿　────────　✿</div>
+      <p class="intro">하고 싶은 말이나 궁금한 것을<br>작은 쪽지에 남겨 주세요.</p>
+    </section>
+
+    <nav class="tabs" aria-label="메뉴">
+      <button class="tab active" data-tab="write">쪽지 남기기</button>
+      <button class="tab" data-tab="check">답장 확인</button>
+      <button class="tab" data-tab="admin">관리자</button>
+    </nav>
+
+    <section id="write" class="panel">
+      <div class="section-head"><span>01</span><h2>Leave a note</h2></div>
+      <p class="hint">질문이나 비밀쪽지를 종이에 살며시 남겨 보세요.</p>
+      <form id="sendForm">
+        <label>쪽지 종류</label>
+        <div class="choice">
+          <label><input type="radio" name="kind" value="question" checked> 오늘의 질문</label>
+          <label><input type="radio" name="kind" value="secret"> 비밀쪽지</label>
+        </div>
+        <label>이름 표시</label>
+        <div class="choice">
+          <label><input type="radio" name="nicknameMode" value="anonymous" checked> 익명</label>
+          <label><input type="radio" name="nicknameMode" value="nickname"> 닉네임</label>
+        </div>
+        <input id="nickname" maxlength="24" placeholder="닉네임 (선택한 경우)" hidden>
+        <label for="message">쪽지 내용</label>
+        <textarea id="message" maxlength="500" rows="5" placeholder="여기에 마음을 적어 주세요. (최대 500자)" required></textarea>
+        <p class="privacy-note">주소, 전화번호, 학교 등 개인정보는 적지 말아 주세요.</p>
+        <button class="primary" type="submit">쪽지 보내기　✉</button>
+      </form>
+      <div id="sendResult" class="result" aria-live="polite"></div>
+    </section>
+
+    <section id="check" class="panel" hidden>
+      <div class="section-head"><span>02</span><h2>Find my reply</h2></div>
+      <p class="hint">쪽지를 보낸 뒤 받은 확인 코드를 입력해 답장을 확인해요.</p>
+      <form id="checkForm">
+        <label for="accessCode">내 쪽지 코드</label>
+        <input id="accessCode" maxlength="20" placeholder="예: 1A2B3C4D5E" required>
+        <button class="primary" type="submit">답장 확인하기</button>
+      </form>
+      <div id="checkResult" class="result" aria-live="polite"></div>
+    </section>
+
+    <section id="admin" class="panel" hidden>
+      <div class="section-head"><span>03</span><h2>My desk</h2></div>
+      <p class="hint">관리자만 사용할 수 있는 공간이에요.</p>
+      <form id="loginForm">
+        <label for="password">관리자 비밀번호</label>
+        <input id="password" type="password" autocomplete="current-password" placeholder="관리자 비밀번호" required>
+        <button class="primary" type="submit">관리자 페이지 열기</button>
+      </form>
+      <div id="adminArea" hidden>
+        <div class="admin-top"><span id="counts"></span><button id="logout" class="small">로그아웃</button></div>
+        <div id="inbox"></div>
+      </div>
+      <div id="adminResult" class="result" aria-live="polite"></div>
+    </section>
+  </main>
+  <footer><span>✿</span><p>Keep the little things.</p><small>DEAR, DAY　·　MADE WITH CARE</small></footer>
+</div>
+<script src="/app.js"></script>
+</body></html>
